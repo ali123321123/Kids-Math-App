@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Matteapp</string>
+    <string name="start">Start</string>
+    <string name="preferanser">Preferanser</string>
+    <string name="statistikk">Statistikk</string>
+    <string name="valgSpill">velg antall regnstykker</string>
+    <string name="femRegnstykker">5 regnstykker</string>
+    <string name="tiRegnstykker">10 regnstykker</string>
+    <string name="tjuefemRegnstykker">25 regnstykker</string>
+    <string name="nul">0</string>
+    <string name="en">1</string>
+    <string name="to">2</string>
+    <string name="tre">3</string>
+    <string name="fire">4</string>
+    <string name="fem">5</string>
+    <string name="seks">6</string>
+    <string name="syv">7</string>
+    <string name="aatte">8</string>
+    <string name="ni">9</string>
+    <string name="regn">Regn</string>
+    <string-array name="quiz_array">
+        <item>1+1=2</item>
+        <item>10+1=11</item>
+        <item>12+13=25</item>
+        <item>10+12=22</item>
+    </string-array>
+
+
+
+
+</resources>
