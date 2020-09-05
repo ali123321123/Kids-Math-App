@@ -12,10 +12,12 @@ public class StatistikkActivity extends AppCompatActivity {
         setContentView(R.layout.activity_statistikk);
 
 
+
         System.out.println("vcvcv");
         System.out.print("Fra Ali");
 
         System.out.println("Fra Adnan");
+
 
 
     }
