@@ -32,14 +32,14 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/enBtn"
                 android:layout_width="111dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="@string/en" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/toBtn"
 
                 android:layout_width="111dp"
                 android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
                 android:text="@string/to" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/treBtn"
                 android:layout_width="111dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -59,21 +59,21 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/button6"
+                android:id="@+id/fireBtn"
                 android:layout_width="111dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="@string/fire" />
 
             <Button
-                android:id="@+id/button5"
+                android:id="@+id/femBtn"
                 android:layout_width="111dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="@string/fem" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/seksBtn"
                 android:layout_width="111dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -85,21 +85,21 @@
             android:layout_height="wrap_content">
 
             <Button
-                android:id="@+id/button9"
+                android:id="@+id/syvBtn"
                 android:layout_width="111dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="@string/syv" />
 
             <Button
-                android:id="@+id/button8"
+                android:id="@+id/aatteBtn"
                 android:layout_width="111dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="@string/aatte" />
 
             <Button
-                android:id="@+id/button7"
+                android:id="@+id/niBtn"
                 android:layout_width="111dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -112,7 +112,7 @@
             android:layout_height="46dp">
 
             <Button
-                android:id="@+id/button11"
+                android:id="@+id/nulBtn"
                 android:layout_width="111dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -123,7 +123,7 @@
     </TableLayout>
 
     <Button
-        android:id="@+id/button12"
+        android:id="@+id/regnBtn"
         android:layout_width="164dp"
         android:layout_height="49dp"
         android:text="@string/regn"
@@ -135,7 +135,7 @@
         app:layout_constraintVertical_bias="0.22" />
 
     <EditText
-        android:id="@+id/btnsvar"
+        android:id="@+id/txtsvar"
         android:layout_width="83dp"
         android:layout_height="55dp"
         android:layout_marginTop="128dp"
