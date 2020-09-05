@@ -13,5 +13,7 @@ public class StatistikkActivity extends AppCompatActivity {
 
         System.out.println("vcvcv");
 
+        System.out.println("Fra Adnan");
+
     }
 }
