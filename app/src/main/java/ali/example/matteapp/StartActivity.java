@@ -4,14 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Arrays;
+
 public class StartActivity extends AppCompatActivity implements View.OnClickListener {
     Spill spill = new Spill();
+    String svar;
+
 
 
     @Override
@@ -19,8 +24,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         Resources res = getResources();
+         spill.antallSp=0;
 
-        Button enBtn,toBtn,treBtn,fireBtn,femBtn,seksBtn,syvBtn,aatteBtn,niBtn,nullBtn,regnBtn;
+        Button enBtn, toBtn, treBtn, fireBtn, femBtn, seksBtn, syvBtn, aatteBtn, niBtn, nullBtn, regnBtn;
         enBtn = findViewById(R.id.enBtn);
         toBtn = findViewById(R.id.toBtn);
         treBtn = findViewById(R.id.treBtn);
@@ -31,10 +37,8 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         aatteBtn = findViewById(R.id.aatteBtn);
         niBtn = findViewById(R.id.niBtn);
         nullBtn = findViewById(R.id.nulBtn);
-        regnBtn=findViewById(R.id.regnBtn);
+        regnBtn = findViewById(R.id.regnBtn);
         final EditText txtsvar = findViewById(R.id.txtsvar);
-
-
 
 
         enBtn.setOnClickListener(this);
@@ -47,40 +51,66 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         aatteBtn.setOnClickListener(this);
         niBtn.setOnClickListener(this);
         nullBtn.setOnClickListener(this);
+
+
         final String[] quizList = res.getStringArray(R.array.quiz_array);
-
-        final TextView txtquiz =(TextView)findViewById(R.id.txtquiz);
-
-
-        txtquiz.setText(quizList[0].substring(0,quizList[0].indexOf("=")+1));
+        spill.SettArray(quizList);
 
 
-
-       //  txtsvar.setText(   quizList[0].substring(quizList[0].lastIndexOf("=") + 1));
-       regnBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String svar =quizList[0].substring(quizList[0].lastIndexOf("=") + 1);
-               String  innTxtSvar = txtsvar.getText().toString();
-           boolean sjekk  = spill.sjekkSvar(innTxtSvar,svar);
-           if(sjekk){
-               Toast.makeText(getApplicationContext(),"جاوبت صح يا غبي", Toast.LENGTH_SHORT).show();
-           }
-           else{
-               Toast.makeText(getApplicationContext(),"جاوبت غلط يا عبي ", Toast.LENGTH_SHORT).show();
-           }
+        final TextView txtquiz = (TextView) findViewById(R.id.txtquiz);
 
 
 
+        txtquiz.setText(quizList[spill.antallSp].substring(0, quizList[spill.antallSp].indexOf("=") + 1));
+
+
+
+            regnBtn.setOnClickListener(new View.OnClickListener() {
+
+
+                @Override
+                public void onClick(View v) {
+
+
+                    svar = quizList[spill.antallSp].substring(quizList[spill.antallSp].lastIndexOf("=") + 1);
+
+                    String innTxtSvar = txtsvar.getText().toString();
+
+
+                    boolean sjekk = spill.sjekkSvar(innTxtSvar, svar);
+
+
+                    if (sjekk) {
+
+                        Toast.makeText(getApplicationContext(), "Du har svart riktig", Toast.LENGTH_SHORT).show();
+
+
+                        spill.antallSp++;
+                        txtsvar.setText(null);
+
+
+
+                    } else {
+                        Toast.makeText(getApplicationContext(), "du har svart feil ", Toast.LENGTH_SHORT).show();
+
+                        spill.antallSp++;
+                        txtsvar.setText(null);
+
+                    }
+
+                    txtquiz.setText(quizList[spill.antallSp].substring(0, quizList[spill.antallSp].indexOf("=") + 1));
+                }
+
+
+            });
+
+
+        }
 
 
 
 
 
-            }
-        });
-
-    }
 
     @Override
     public void onClick(View v) {
@@ -176,5 +206,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
 
 
 
+
     }
+
 }
