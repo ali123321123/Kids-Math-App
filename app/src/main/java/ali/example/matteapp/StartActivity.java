@@ -18,13 +18,12 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
     String svar;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         Resources res = getResources();
-         spill.antallSp=0;
+        spill.antallSp = 0;
 
         Button enBtn, toBtn, treBtn, fireBtn, femBtn, seksBtn, syvBtn, aatteBtn, niBtn, nullBtn, regnBtn;
         enBtn = findViewById(R.id.enBtn);
@@ -60,151 +59,131 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         final TextView txtquiz = (TextView) findViewById(R.id.txtquiz);
 
 
-
         txtquiz.setText(quizList[spill.antallSp].substring(0, quizList[spill.antallSp].indexOf("=") + 1));
 
 
-
-            regnBtn.setOnClickListener(new View.OnClickListener() {
-
-
-                @Override
-                public void onClick(View v) {
+        regnBtn.setOnClickListener(new View.OnClickListener() {
 
 
-                    svar = quizList[spill.antallSp].substring(quizList[spill.antallSp].lastIndexOf("=") + 1);
-
-                    String innTxtSvar = txtsvar.getText().toString();
-
-
-                    boolean sjekk = spill.sjekkSvar(innTxtSvar, svar);
+            @Override
+            public void onClick(View v) {
 
 
-                    if (sjekk) {
+                svar = quizList[spill.antallSp].substring(quizList[spill.antallSp].lastIndexOf("=") + 1);
 
-                        Toast.makeText(getApplicationContext(), "Du har svart riktig", Toast.LENGTH_SHORT).show();
-
-
-                        spill.antallSp++;
-                        txtsvar.setText(null);
+                String innTxtSvar = txtsvar.getText().toString();
 
 
+                boolean sjekk = spill.sjekkSvar(innTxtSvar, svar);
 
-                    } else {
-                        Toast.makeText(getApplicationContext(), "du har svart feil ", Toast.LENGTH_SHORT).show();
 
-                        spill.antallSp++;
-                        txtsvar.setText(null);
+                if (sjekk) {
 
-                    }
+                    Toast.makeText(getApplicationContext(), "Du har svart riktig", Toast.LENGTH_SHORT).show();
 
-                    txtquiz.setText(quizList[spill.antallSp].substring(0, quizList[spill.antallSp].indexOf("=") + 1));
+
+                    spill.antallSp++;
+                    txtsvar.setText(null);
+
+
+                } else {
+                    Toast.makeText(getApplicationContext(), "du har svart feil ", Toast.LENGTH_SHORT).show();
+
+                    spill.antallSp++;
+                    txtsvar.setText(null);
+
                 }
 
 
-            });
+                txtquiz.setText(quizList[spill.antallSp].substring(0, quizList[spill.antallSp].indexOf("=") + 1));
+            }
 
 
-        }
+        });
 
 
-
-
+    }
 
 
     @Override
     public void onClick(View v) {
-        EditText  txtsvar =(EditText) findViewById(R.id.txtsvar);
+        EditText txtsvar = (EditText) findViewById(R.id.txtsvar);
 
 
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.enBtn:
-                if(txtsvar.equals("")) {
+                if (txtsvar.equals("")) {
                     txtsvar.setText("1");
-                }
-                else {
+                } else {
                     txtsvar.append("1");
                 }
                 break;
             case R.id.toBtn:
-                if(txtsvar.equals("")) {
+                if (txtsvar.equals("")) {
                     txtsvar.setText("2");
-                }
-                else {
+                } else {
                     txtsvar.append("2");
                 }
                 break;
             case R.id.treBtn:
-                if(txtsvar.equals("")) {
+                if (txtsvar.equals("")) {
                     txtsvar.setText("3");
-                }
-                else {
+                } else {
                     txtsvar.append("3");
                 }
                 break;
             case R.id.fireBtn:
-                if(txtsvar.equals("")) {
+                if (txtsvar.equals("")) {
                     txtsvar.setText("4");
-                }
-                else {
+                } else {
                     txtsvar.append("4");
                 }
                 break;
             case R.id.femBtn:
-                if(txtsvar.equals("")) {
+                if (txtsvar.equals("")) {
                     txtsvar.setText("5");
-                }
-                else {
+                } else {
                     txtsvar.append("5");
                 }
                 break;
             case R.id.seksBtn:
-                if(txtsvar.equals("")) {
+                if (txtsvar.equals("")) {
                     txtsvar.setText("6");
-                }
-                else {
+                } else {
                     txtsvar.append("6");
                 }
                 break;
             case R.id.syvBtn:
-                if(txtsvar.equals("")) {
+                if (txtsvar.equals("")) {
                     txtsvar.setText("7");
-                }
-                else {
+                } else {
                     txtsvar.append("7");
                 }
                 break;
             case R.id.aatteBtn:
-                if(txtsvar.equals("")) {
+                if (txtsvar.equals("")) {
                     txtsvar.setText("8");
-                }
-                else {
+                } else {
                     txtsvar.append("8");
                 }
                 break;
             case R.id.niBtn:
-                if(txtsvar.equals("")) {
+                if (txtsvar.equals("")) {
                     txtsvar.setText("9");
-                }
-                else {
+                } else {
                     txtsvar.append("9");
                 }
                 break;
             case R.id.nulBtn:
-                if(txtsvar.equals("")) {
+                if (txtsvar.equals("")) {
                     txtsvar.setText("0");
-                }
-                else {
+                } else {
                     txtsvar.append("0");
                 }
                 break;
 
 
         }
-
-
-
-
 
 
     }
