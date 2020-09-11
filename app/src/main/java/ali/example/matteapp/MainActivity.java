@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+    int valgt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,11 +19,15 @@ public class MainActivity extends AppCompatActivity {
         btnStart = (Button)findViewById(R.id.start);
         btnStatistikk =(Button)findViewById(R.id.statistikk);
         btnPreferanser=(Button)findViewById(R.id.preferanse);
+        Bundle extras =getIntent().getExtras();
+         valgt =extras.getInt("valgt");
+
 
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(MainActivity.this,StartActivity.class);
+                myIntent.putExtra("valgt2",valgt);
                 startActivity(myIntent);
             }
         });
@@ -31,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(MainActivity.this,StatistikkActivity.class);
+
                 startActivity(myIntent);
             }
         });

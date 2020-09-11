@@ -11,11 +11,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class StartActivity extends AppCompatActivity implements View.OnClickListener {
     Spill spill = new Spill();
     String svar;
+    int valgt;
+    String[] quizList;
 
 
     @Override
@@ -23,9 +28,17 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         Resources res = getResources();
+
+
+        Bundle extras = getIntent().getExtras();
+        valgt = extras.getInt("valgt2");
+        if (valgt == 0) {
+            valgt = 25;
+        }
         spill.antallSp = 0;
 
         Button enBtn, toBtn, treBtn, fireBtn, femBtn, seksBtn, syvBtn, aatteBtn, niBtn, nullBtn, regnBtn;
+        final TextView poengTeller ;
         enBtn = findViewById(R.id.enBtn);
         toBtn = findViewById(R.id.toBtn);
         treBtn = findViewById(R.id.treBtn);
@@ -37,6 +50,8 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         niBtn = findViewById(R.id.niBtn);
         nullBtn = findViewById(R.id.nulBtn);
         regnBtn = findViewById(R.id.regnBtn);
+        poengTeller=findViewById(R.id.PoengTeller);
+
         final EditText txtsvar = findViewById(R.id.txtsvar);
 
 
@@ -52,7 +67,10 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         nullBtn.setOnClickListener(this);
 
 
-        final String[] quizList = res.getStringArray(R.array.quiz_array);
+        quizList = randomizereArray(res.getStringArray(R.array.quiz_array));
+
+
+
         spill.SettArray(quizList);
 
 
@@ -76,26 +94,33 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
 
                 boolean sjekk = spill.sjekkSvar(innTxtSvar, svar);
 
+                if (spill.antallSp != valgt) {
+                    if (sjekk) {
 
-                if (sjekk) {
-
-                    Toast.makeText(getApplicationContext(), "Du har svart riktig", Toast.LENGTH_SHORT).show();
-
-
-                    spill.antallSp++;
-                    txtsvar.setText(null);
+                        Toast.makeText(getApplicationContext(), "Du har svart riktig", Toast.LENGTH_SHORT).show();
 
 
-                } else {
-                    Toast.makeText(getApplicationContext(), "du har svart feil ", Toast.LENGTH_SHORT).show();
+                        spill.antallSp++;
+                        poengTeller.setText(""+spill.riktigTeller*10);
+                        txtsvar.setText(null);
 
-                    spill.antallSp++;
-                    txtsvar.setText(null);
 
+                    } else {
+                        Toast.makeText(getApplicationContext(), "du har svart feil ", Toast.LENGTH_SHORT).show();
+
+                        spill.antallSp++;
+
+                     //   poengTeller.setText(""+(spill.riktigTeller));
+                        txtsvar.setText(null);
+
+                    }
+
+
+                    txtquiz.setText(quizList[spill.antallSp].substring(0, quizList[spill.antallSp].indexOf("=") + 1));
+                } else if (spill.antallSp == valgt) {
+                    Toast.makeText(getApplicationContext(), "spillet er ferdig ", Toast.LENGTH_SHORT).show();
                 }
 
-
-                txtquiz.setText(quizList[spill.antallSp].substring(0, quizList[spill.antallSp].indexOf("=") + 1));
             }
 
 
@@ -187,5 +212,23 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
 
 
     }
+
+
+    public  String [] randomizereArray(String [] innArray){
+
+        List<String> quizarray = Arrays.asList(innArray);
+        Collections.shuffle(quizarray);
+        String utArray[] =quizarray.toArray(innArray);
+
+        return utArray;
+
+
+
+
+
+
+    }
+
+
 
 }

@@ -146,4 +146,27 @@
         app:layout_constraintStart_toEndOf="@+id/txtquiz"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/PoengTeller"
+        android:layout_width="40dp"
+        android:layout_height="37dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtsvar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.773"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.406" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="46dp"
+        android:layout_height="36dp"
+        android:text="@string/visPoeng"
+        app:layout_constraintBottom_toTopOf="@+id/txtquiz"
+        app:layout_constraintEnd_toStartOf="@+id/PoengTeller"
+        app:layout_constraintHorizontal_bias="0.902"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.536" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
