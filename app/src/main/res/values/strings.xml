@@ -20,6 +20,7 @@
     <string name="regn">Regn</string>
     <string name="valgSpillB">Velg</string>
     <string name="visPoeng">Poeng</string>
+    <string name="visStatistisk">Statistisk</string>
     <string-array name="quiz_array">
         <item>1+1=2</item>
         <item>10+1=11</item>

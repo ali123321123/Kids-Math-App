@@ -4,21 +4,19 @@ public class Spill {
     private String innVerdi;
     private String riktigSvar;
     public String[] quizarray;
-    public String sprsmol;
     public int antallSp;
+    int riktigTeller ;
+    int galeTeller ;
+
+public Spill(){
+
+    this.riktigTeller = 0;
+    this.galeTeller = 0;
+}
 
 
-    int riktigTeller = 0;
-    int galeTeller = 0;
 
 
-    public String getInnVerdi() {
-        return innVerdi;
-    }
-
-    public void setInnVerdi(String innVerdi) {
-        this.innVerdi = innVerdi;
-    }
 
     public void SettArray(String[] quizarray) {
         this.quizarray = quizarray;
@@ -39,13 +37,6 @@ public class Spill {
 
     }
 
-    public String Sporsmål(int i) {
-
-        sprsmol = quizarray[i];
-        antallSp++;
-
-        return sprsmol;
-    }
 
 
 }
