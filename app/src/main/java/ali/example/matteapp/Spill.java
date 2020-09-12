@@ -8,10 +8,15 @@ public class Spill {
     int riktigTeller ;
     int galeTeller ;
 
+    static int galeScore =0;
+    static int riktigScore=0 ;
+
 public Spill(){
 
     this.riktigTeller = 0;
     this.galeTeller = 0;
+
+
 }
 
 
@@ -35,6 +40,11 @@ public Spill(){
             return false;
         }
 
+    }
+
+    public void FerdigSpillet(){
+        galeScore +=galeTeller;
+        riktigScore += riktigTeller;
     }
 
 

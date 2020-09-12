@@ -1,17 +1,20 @@
 package ali.example.matteapp;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Log;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -119,6 +122,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                     txtquiz.setText(quizList[spill.antallSp].substring(0, quizList[spill.antallSp].indexOf("=") + 1));
                 } else if (spill.antallSp == valgt) {
                     Toast.makeText(getApplicationContext(), "spillet er ferdig ", Toast.LENGTH_SHORT).show();
+                    spill.FerdigSpillet();
+                  //  lageDialog();
+
                 }
 
             }
@@ -128,6 +134,36 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
 
 
     }
+/*
+    private void lageDialog() {
+
+        AlertDialog.Builder builder =  new AlertDialog.Builder(this);
+        builder.setTitle("spillet er Ferdig").
+                setMessage("Riktige :"+spill.riktigTeller+"\n"+"Gale"+spill.galeTeller).
+                setPositiveButton("Spill igjen", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getApplicationContext(), "Du har kikket yes ", Toast.LENGTH_SHORT).show();
+                        Intent myIntent = new Intent(StartActivity.this,MainActivity.class);
+                        myIntent.putExtra("riktigerVerdier",spill.riktigTeller);
+                        myIntent.putExtra("galeVerdier",spill.galeTeller);
+
+                        startActivity(myIntent);
+
+                    }
+                }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+StartActivity.this.finish();
+                System.exit(0);
+            }
+        });
+        AlertDialog alertDialog =builder.create();
+        alertDialog.show();
+
+    }
+
+ */
 
 
     @Override

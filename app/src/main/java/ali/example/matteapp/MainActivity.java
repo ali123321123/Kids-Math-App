@@ -10,6 +10,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
     int valgt;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +21,12 @@ public class MainActivity extends AppCompatActivity {
         btnStatistikk =(Button)findViewById(R.id.statistikk);
         btnPreferanser=(Button)findViewById(R.id.preferanse);
         Bundle extras =getIntent().getExtras();
-         valgt =extras.getInt("valgt");
+        if(extras.containsKey("valgt")) {
+            valgt = extras.getInt("valgt");
+        }
+        if(extras.containsKey("riktige") ||extras.containsKey("gale") ){
+
+        }
 
 
         btnStart.setOnClickListener(new View.OnClickListener() {
